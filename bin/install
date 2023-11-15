@@ -21,10 +21,11 @@ install() {
 
   if asdf list python "${REQ_PYTHON_VERSION}"; then
     echo "python ${REQ_PYTHON_VERSION} already installed"
-    asdf local python "${REQ_PYTHON_VERSION}"
   else
     asdf install python "${REQ_PYTHON_VERSION}"
   fi
+
+  ASDF_PYTHON_VERSION=${REQ_PYTHON_VERSION}
 
   mkdir -p "$ASDF_INSTALL_PATH/bin" &&
     python3 -m venv "$ASDF_INSTALL_PATH/bin/venv" &&
